@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Effects App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4 max-w-6xl">
+   
+        
+        <div class="mb-6 text-center">
+            <label for="upload" class="bg-blue-500 text-white px-6 py-3 rounded-lg cursor-pointer hover:bg-blue-600 transition">
+                Upload Audio File
+            </label>
+            <input type="file" id="upload" accept="audio/*" class="hidden">
+        </div>
+        
+        <div id="categories">
+            <h2 class="text-3xl font-bold mb-2">Pitch</h2>
+            <div class="grid grid-cols-5 gap-4 mb-6  ">
+                <button data-effect="Pitch-Chipmunk" class="  w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Chipmunk</button>
+                <button data-effect="Pitch-Helium" class="w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Helium</button>
+                <button data-effect="Pitch-Squeaky" class="w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Squeaky</button>
+                <button data-effect="Pitch-High1" class="w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">High1</button>
+                <button data-effect="Pitch-High2" class="w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">High2</button>
+                <button data-effect="Pitch-NormalHigh" class="w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">NormalHigh</button>
+                <button data-effect="Pitch-Low1" class="w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Low1</button>
+                <button data-effect="Pitch-Low2" class="w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Low2</button>
+                <button data-effect="Pitch-Demon" class="w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Demon</button>
+                <button data-effect="Pitch-Deep" class="w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Deep</button>
+            </div>
+            
+   
+     
+            
+            <h2 class="text-3xl font-bold mb-2 ">Reverb</h2>
+            <div class="grid grid-cols-4 gap-4 mb-6 ">
+                <button data-effect="Reverb-TinyRoom" class="w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">TinyRoom</button>
+                <button data-effect="Reverb-SmallRoom" class="w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">SmallRoom</button>
+                <button data-effect="Reverb-MediumRoom" class="w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">MediumRoom</button>
+                <button data-effect="Reverb-LargeRoom" class="w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">LargeRoom</button>
+                <button data-effect="Reverb-Hall" class="w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Hall</button>
+                <button data-effect="Reverb-Cathedral" class="w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Cathedral</button>
+                <button data-effect="Reverb-Plate" class="w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Plate</button>
+                <button data-effect="Reverb-Spring" class="w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Spring</button>
+            </div>
+            
+            <h2 class="text-3xl font-bold mb-2  ">Distortion</h2>
+            <div class="grid grid-cols-3 gap-4 mb-6 ">
+                <button data-effect="Distortion-Light" class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Light</button>
+                <button data-effect="Distortion-Medium" class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Medium</button>
+                <button data-effect="Distortion-Heavy" class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Heavy</button>
+                <button data-effect="Distortion-Overdrive" class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Overdrive</button>
+                <button data-effect="Distortion-Fuzz" class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Fuzz</button>
+                <button data-effect="Distortion-Crunch" class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Crunch</button>
+            </div>
+            
+            <h2 class="text-3xl font-bold mb-2 ">Filters</h2>
+            <div class="grid grid-cols-5 gap-4 mb-6  ">
+                <button data-effect="Filters-LowpassLow" class="w-32 h-32 bg-gradient-to-br from-teal-400 to-cyan-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">LowpassLow</button>
+                <button data-effect="Filters-LowpassMed" class="w-32 h-32 bg-gradient-to-br from-teal-400 to-cyan-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">LowpassMed</button>
+                <button data-effect="Filters-LowpassHigh" class="w-32 h-32 bg-gradient-to-br from-teal-400 to-cyan-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">LowpassHigh</button>
+                <button data-effect="Filters-HighpassLow" class="w-32 h-32 bg-gradient-to-br from-teal-400 to-cyan-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">HighpassLow</button>
+                <button data-effect="Filters-HighpassMed" class="w-32 h-32 bg-gradient-to-br from-teal-400 to-cyan-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">HighpassMed</button>
+                <button data-effect="Filters-HighpassHigh" class="w-32 h-32 bg-gradient-to-br from-teal-400 to-cyan-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">HighpassHigh</button>
+                <button data-effect="Filters-BandpassNarrow" class="w-32 h-32 bg-gradient-to-br from-teal-400 to-cyan-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">BandpassNarrow</button>
+                <button data-effect="Filters-BandpassWide" class="w-32 h-32 bg-gradient-to-br from-teal-400 to-cyan-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">BandpassWide</button>
+                <button data-effect="Filters-Notch" class="w-32 h-32 bg-gradient-to-br from-teal-400 to-cyan-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Notch</button>
+                <button data-effect="Filters-Peaking" class="w-32 h-32 bg-gradient-to-br from-teal-400 to-cyan-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Peaking</button>
+            </div>
+            
+            <h2 class="text-3xl font-bold mb-2">Modulation</h2>
+            <div class="grid grid-cols-5 gap-4 mb-6  ">
+                <button data-effect="Modulation-ChorusLight" class="w-32 h-32 bg-gradient-to-br from-pink-400 to-red-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">ChorusLight</button>
+                <button data-effect="Modulation-ChorusMed" class="w-32 h-32 bg-gradient-to-br from-pink-400 to-red-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">ChorusMed</button>
+                <button data-effect="Modulation-ChorusHeavy" class="w-32 h-32 bg-gradient-to-br from-pink-400 to-red-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">ChorusHeavy</button>
+                <button data-effect="Modulation-PhaserSlow" class="w-32 h-32 bg-gradient-to-br from-pink-400 to-red-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">PhaserSlow</button>
+                <button data-effect="Modulation-PhaserFast" class="w-32 h-32 bg-gradient-to-br from-pink-400 to-red-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">PhaserFast</button>
+                <button data-effect="Modulation-VibratoSlow" class="w-32 h-32 bg-gradient-to-br from-pink-400 to-red-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">VibratoSlow</button>
+                <button data-effect="Modulation-VibratoFast" class="w-32 h-32 bg-gradient-to-br from-pink-400 to-red-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">VibratoFast</button>
+            </div>
+            
+            <h2 class="text-3xl font-bold mb-2">Retro</h2>
+            <div class="grid grid-cols-3 gap-4 mb-6  ">
+                <button data-effect="Retro-Telephone" class="w-32 h-32 bg-gradient-to-br from-gray-400 to-black text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Telephone</button>
+                <button data-effect="Retro-Radio" class="w-32 h-32 bg-gradient-to-br from-gray-400 to-black text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Radio</button>
+                <button data-effect="Retro-WalkieTalkie" class="w-32 h-32 bg-gradient-to-br from-gray-400 to-black text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">WalkieTalkie</button>
+                <button data-effect="Retro-VintageMic" class="w-32 h-32 bg-gradient-to-br from-gray-400 to-black text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">VintageMic</button>
+                <button data-effect="Retro-LoFi" class="w-32 h-32 bg-gradient-to-br from-gray-400 to-black text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">LoFi</button>
+                <button data-effect="Retro-Gramophone" class="w-32 h-32 bg-gradient-to-br from-gray-400 to-black text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Gramophone</button>
+            </div>
+            
+            <h2 class="text-3xl font-bold mb-2">Characters</h2>
+            <div class="grid grid-cols-4 gap-4 mb-6  ">
+                <button data-effect="Characters-Robot" class="w-32 h-32 bg-gradient-to-br from-indigo-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Robot</button>
+                <button data-effect="Characters-Alien" class="w-32 h-32 bg-gradient-to-br from-indigo-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Alien</button>
+                <button data-effect="Characters-Monster" class="w-32 h-32 bg-gradient-to-br from-indigo-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Monster</button>
+                <button data-effect="Characters-Troll" class="w-32 h-32 bg-gradient-to-br from-indigo-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Troll</button>
+                <button data-effect="Characters-Ogre" class="w-32 h-32 bg-gradient-to-br from-indigo-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Ogre</button>
+                <button data-effect="Characters-DarthVader" class="w-32 h-32 bg-gradient-to-br from-indigo-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">DarthVader</button>                <button data-effect="Characters-Devil" class="w-32 h-32 bg-gradient-to-br from-indigo-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Devil</button>
+                <button data-effect="Characters-Dragon" class="w-32 h-32 bg-gradient-to-br from-indigo-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Dragon</button>
+                <button data-effect="Characters-Baby" class="w-32 h-32 bg-gradient-to-br from-indigo-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Baby</button>
+                <button data-effect="Characters-OldMan" class="w-32 h-32 bg-gradient-to-br from-indigo-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">OldMan</button>
+                <button data-effect="Characters-Drunk" class="w-32 h-32 bg-gradient-to-br from-indigo-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Drunk</button>
+                <button data-effect="Characters-Martian" class="w-32 h-32 bg-gradient-to-br from-indigo-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Martian</button>
+                <button data-effect="Characters-Bee" class="w-32 h-32 bg-gradient-to-br from-indigo-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Bee</button>
+                <button data-effect="Characters-Hoarse" class="w-32 h-32 bg-gradient-to-br from-indigo-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Hoarse</button>
+                <button data-effect="Characters-Fan" class="w-32 h-32 bg-gradient-to-br from-indigo-400 to-blue-500 text-white font-bold rounded-lg hover:scale-105 transition flex items-center justify-center">Fan</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+            <h3 id="effect-title" class="text-xl font-bold mb-4 text-center"></h3>
+            <audio id="audio-player" controls class="w-full mb-4"></audio>
+            <div class="flex justify-center gap-4">
+                <button id="download" class="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition">Download</button>
+                <button id="close" class="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600 transition">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        let originalBuffer = null;
+        let uploadedFileName = 'processed';
+
+        const uploadInput = document.getElementById('upload');
+        uploadInput.addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            uploadedFileName = file.name.split('.')[0];
+            const arrayBuf = await file.arrayBuffer();
+            originalBuffer = await audioCtx.decodeAudioData(arrayBuf);
+        });
+
+        const effectButtons = document.querySelectorAll('[data-effect]');
+        const modal = document.getElementById('modal');
+        const effectTitle = document.getElementById('effect-title');
+        const audioPlayer = document.getElementById('audio-player');
+        const downloadBtn = document.getElementById('download');
+        const closeBtn = document.getElementById('close');
+
+        closeBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+            audioPlayer.pause();
+            audioPlayer.src = '';
+        });
+
+        effectButtons.forEach(btn => {
+            btn.addEventListener('click', async () => {
+                if (!originalBuffer) {
+                    alert('Please upload an audio file first.');
+                    return;
+                }
+                const effect = btn.dataset.effect;
+                const processedBuffer = await applyEffect(effect, originalBuffer);
+                const wavBlob = bufferToWave(processedBuffer);
+                const url = URL.createObjectURL(wavBlob);
+                effectTitle.textContent = effect;
+                audioPlayer.src = url;
+                modal.classList.remove('hidden');
+                audioPlayer.play();
+
+                downloadBtn.onclick = () => {
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `${uploadedFileName}-${effect}.wav`;
+                    a.click();
+                };
+            });
+        });
+
+        async function applyEffect(effectName, originalBuffer) {
+            const offlineCtx = new OfflineAudioContext(
+                originalBuffer.numberOfChannels,
+                originalBuffer.length,
+                originalBuffer.sampleRate
+            );
+            const source = offlineCtx.createBufferSource();
+            source.buffer = originalBuffer;
+            let lastNode = source;
+
+            // Helper functions
+            function setPitchShift(r) {
+                source.detune.value = 1200 * Math.log2(r);
+            }
+
+            function setSpeedShift(s) {
+                source.playbackRate.value = s;
+                source.detune.value = -1200 * Math.log2(s);
+            }
+
+            function applyEcho(delayTime, feedback) {
+                const delay = offlineCtx.createDelay(delayTime * 2);
+                delay.delayTime.value = delayTime;
+                const gain = offlineCtx.createGain();
+                gain.gain.value = feedback;
+                lastNode.connect(delay);
+                delay.connect(gain);
+                gain.connect(lastNode);
+                lastNode.connect(offlineCtx.destination);
+                lastNode = delay;
+            }
+
+            function applyReverb(seconds, decay) {
+                const convolver = offlineCtx.createConvolver();
+                convolver.buffer = createReverbBuffer(offlineCtx, seconds, decay);
+                lastNode.connect(convolver);
+                lastNode = convolver;
+            }
+
+            function applyDistortion(amount) {
+                const waveshaper = offlineCtx.createWaveShaper();
+                waveshaper.curve = makeDistortionCurve(amount);
+                waveshaper.oversample = '4x';
+                lastNode.connect(waveshaper);
+                lastNode = waveshaper;
+            }
+
+            function applyFilter(type, freq, q = 1) {
+                const filter = offlineCtx.createBiquadFilter();
+                filter.type = type;
+                filter.frequency.value = freq;
+                filter.Q.value = q;
+                lastNode.connect(filter);
+                lastNode = filter;
+            }
+
+            function applyChorus(delays) {
+                // Approximate static chorus with multiple delays
+                delays.forEach(d => {
+                    const delay = offlineCtx.createDelay(d);
+                    delay.delayTime.value = d;
+                    const gain = offlineCtx.createGain();
+                    gain.gain.value = 0.5;
+                    lastNode.connect(delay);
+                    delay.connect(gain);
+                    gain.connect(offlineCtx.destination);
+                });
+            }
+
+            function applyFlanger(delayTime, feedback) {
+                applyEcho(delayTime, feedback);
+            }
+
+            function applyPhaser(stages) {
+                for (let i = 0; i < stages; i++) {
+                    const allpass = offlineCtx.createBiquadFilter();
+                    allpass.type = 'allpass';
+                    allpass.frequency.value = 440 * Math.pow(2, i / 12); // approximate
+                    lastNode.connect(allpass);
+                    lastNode = allpass;
+                }
+            }
+
+            // For vibrato and tremolo, approximate with slight pitch or gain, but static, so perhaps skip or use filter
+            // For now, use pitch shift or filter for approximation
+
+            switch (effectName) {
+                // Pitch
+                case 'Pitch-Chipmunk':
+                    setPitchShift(1.5);
+                    break;
+                case 'Pitch-Helium':
+                    setPitchShift(1.8);
+                    break;
+                case 'Pitch-Squeaky':
+                    setPitchShift(2.0);
+                    break;
+                case 'Pitch-High1':
+                    setPitchShift(1.2);
+                    break;
+                case 'Pitch-High2':
+                    setPitchShift(1.3);
+                    break;
+                case 'Pitch-NormalHigh':
+                    setPitchShift(1.1);
+                    break;
+                case 'Pitch-Low1':
+                    setPitchShift(0.9);
+                    break;
+                case 'Pitch-Low2':
+                    setPitchShift(0.8);
+                    break;
+                case 'Pitch-Demon':
+                    setPitchShift(0.7);
+                    break;
+                case 'Pitch-Deep':
+                    setPitchShift(0.6);
+                    break;
+
+
+
+                // Reverb
+                case 'Reverb-TinyRoom':
+                    applyReverb(0.5, 2);
+                    break;
+                case 'Reverb-SmallRoom':
+                    applyReverb(1, 2);
+                    break;
+                case 'Reverb-MediumRoom':
+                    applyReverb(2, 2);
+                    break;
+                case 'Reverb-LargeRoom':
+                    applyReverb(3, 3);
+                    break;
+                case 'Reverb-Hall':
+                    applyReverb(4, 3);
+                    break;
+                case 'Reverb-Cathedral':
+                    applyReverb(5, 4);
+                    break;
+                case 'Reverb-Plate':
+                    applyReverb(2, 5);
+                    break;
+                case 'Reverb-Spring':
+                    applyReverb(3, 4);
+                    break;
+
+                // Distortion
+                case 'Distortion-Light':
+                    applyDistortion(10);
+                    break;
+                case 'Distortion-Medium':
+                    applyDistortion(30);
+                    break;
+                case 'Distortion-Heavy':
+                    applyDistortion(50);
+                    break;
+                case 'Distortion-Overdrive':
+                    applyDistortion(20);
+                    break;
+                case 'Distortion-Fuzz':
+                    applyDistortion(100);
+                    break;
+                case 'Distortion-Crunch':
+                    applyDistortion(40);
+                    break;
+
+                // Filters
+                case 'Filters-LowpassLow':
+                    applyFilter('lowpass', 500);
+                    break;
+                case 'Filters-LowpassMed':
+                    applyFilter('lowpass', 1000);
+                    break;
+                case 'Filters-LowpassHigh':
+                    applyFilter('lowpass', 2000);
+                    break;
+                case 'Filters-HighpassLow':
+                    applyFilter('highpass', 100);
+                    break;
+                case 'Filters-HighpassMed':
+                    applyFilter('highpass', 300);
+                    break;
+                case 'Filters-HighpassHigh':
+                    applyFilter('highpass', 500);
+                    break;
+                case 'Filters-BandpassNarrow':
+                    applyFilter('bandpass', 1000, 10);
+                    break;
+                case 'Filters-BandpassWide':
+                    applyFilter('bandpass', 1000, 1);
+                    break;
+                case 'Filters-Notch':
+                    applyFilter('notch', 1000, 10);
+                    break;
+                case 'Filters-Peaking':
+                    applyFilter('peaking', 1000, 10);
+                    break;
+
+                // Modulation - approximations
+                case 'Modulation-ChorusLight':
+                    applyChorus([0.01, 0.02]);
+                    break;
+                case 'Modulation-ChorusMed':
+                    applyChorus([0.02, 0.03, 0.04]);
+                    break;
+                case 'Modulation-ChorusHeavy':
+                    applyChorus([0.03, 0.04, 0.05, 0.06]);
+                    break;
+      
+                case 'Modulation-PhaserSlow':
+                    applyPhaser(4);
+                    break;
+                case 'Modulation-PhaserFast':
+                    applyPhaser(8);
+                    break;
+                case 'Modulation-VibratoSlow':
+                    // Approximate with slight pitch shift
+                    setPitchShift(1.05);
+                    break;
+                case 'Modulation-VibratoFast':
+                    setPitchShift(1.1);
+                    break;
+
+
+                // Retro
+                case 'Retro-Telephone':
+                    applyFilter('highpass', 300);
+                    applyFilter('lowpass', 3000);
+                    break;
+                case 'Retro-Radio':
+                    applyFilter('lowpass', 2000);
+                    applyDistortion(10);
+                    break;
+                case 'Retro-WalkieTalkie':
+                    applyFilter('bandpass', 1000, 5);
+                    applyDistortion(20);
+                    break;
+                case 'Retro-VintageMic':
+                    applyFilter('highpass', 100);
+                    applyFilter('lowpass', 5000);
+                    applyDistortion(5);
+                    break;
+                case 'Retro-LoFi':
+                    applyFilter('lowpass', 4000);
+                    applyDistortion(15);
+                    break;
+                case 'Retro-Gramophone':
+                    applyFilter('highpass', 200);
+                    applyFilter('lowpass', 3000);
+                    applyDistortion(25);
+                    break;
+
+                // Characters - combinations
+                case 'Characters-Robot':
+                    applyFilter('bandpass', 500, 10);
+                    applyDistortion(10);
+                    break;
+                case 'Characters-Alien':
+                    setPitchShift(1.2);
+                    applyReverb(2, 3);
+                    break;
+                case 'Characters-Monster':
+                    setPitchShift(0.8);
+                    applyDistortion(30);
+                    applyEcho(0.2, 0.5);
+                    break;
+                case 'Characters-Troll':
+                    setPitchShift(0.7);
+                    applyDistortion(20);
+                    break;
+                case 'Characters-Ogre':
+                    setPitchShift(0.6);
+                    applyReverb(1, 2);
+                    break;
+                case 'Characters-DarthVader':
+                    setPitchShift(0.7);
+                    applyReverb(3, 3);
+                    applyDistortion(10);
+                    break;
+                case 'Characters-Devil':
+                    setPitchShift(0.9);
+                    applyDistortion(40);
+                    applyReverb(2, 4);
+                    break;
+                case 'Characters-Dragon':
+                    setPitchShift(0.5);
+                    applyEcho(0.5, 0.7);
+                    break;
+                case 'Characters-Baby':
+                    setPitchShift(1.5);
+                    applyFilter('highpass', 500);
+                    break;
+                case 'Characters-OldMan':
+                    setPitchShift(0.9);
+                    applyFilter('lowpass', 3000);
+                    applyDistortion(5);
+                    break;
+                case 'Characters-Drunk':
+                    setSpeedShift(0.9);
+                    applyFilter('lowpass', 2000);
+                    break;
+                case 'Characters-Martian':
+                    setPitchShift(1.1);
+                    applyPhaser(6);
+                    break;
+                case 'Characters-Bee':
+                    setPitchShift(2.0);
+                    applyFilter('highpass', 1000);
+                    break;
+                case 'Characters-Hoarse':
+                    applyDistortion(15);
+                    applyFilter('lowpass', 4000);
+                    break;
+                case 'Characters-Fan':
+                    applyFilter('lowpass', 1000);
+                    applyReverb(1, 2);
+                    break;
+            }
+
+            lastNode.connect(offlineCtx.destination);
+            source.start();
+            return await offlineCtx.startRendering();
+        }
+
+        function createReverbBuffer(ctx, seconds, decay, reverse = false) {
+            const len = ctx.sampleRate * seconds;
+            const impulse = ctx.createBuffer(2, len, ctx.sampleRate);
+            const left = impulse.getChannelData(0);
+            const right = impulse.getChannelData(1);
+            for (let i = 0; i < len; i++) {
+                const val = (Math.random() * 2 - 1) * Math.pow(1 - i / len, decay);
+                left[i] = val;
+                right[i] = val;
+            }
+            if (reverse) {
+                left.reverse();
+                right.reverse();
+            }
+            return impulse;
+        }
+
+        function makeDistortionCurve(amount) {
+            const k = typeof amount === 'number' ? amount : 50;
+            const n_samples = 44100;
+            const curve = new Float32Array(n_samples);
+            const deg = Math.PI / 180;
+            for (let i = 0; i < n_samples; ++i) {
+                const x = i * 2 / n_samples - 1;
+                curve[i] = (3 + k) * x * 20 * deg / (Math.PI + k * Math.abs(x));
+            }
+            return curve;
+        }
+
+        function bufferToWave(abuffer) {
+            let numOfChan = abuffer.numberOfChannels,
+                length = abuffer.length * numOfChan * 2 + 44,
+                buffer = new ArrayBuffer(length),
+                view = new DataView(buffer),
+                channels = [], i, sample,
+                offset = 0,
+                pos = 0;
+
+            // write WAVE header
+            setUint32(0x46464952); // "RIFF"
+            setUint32(length - 8); // file length - 8
+            setUint32(0x45564157); // "WAVE"
+
+            setUint32(0x20746d66); // "fmt " chunk
+            setUint32(16); // length = 16
+            setUint16(1); // PCM (uncompressed)
+            setUint16(numOfChan);
+            setUint32(abuffer.sampleRate);
+            setUint32(abuffer.sampleRate * 2 * numOfChan); // avg. bytes/sec
+            setUint16(numOfChan * 2); // block-align
+            setUint16(16); // 16-bit
+
+            setUint32(0x61746164); // "data" chunk
+            setUint32(length - pos - 4); // chunk length
+
+            // write interleaved data
+            for (i = 0; i < abuffer.numberOfChannels; i++)
+                channels.push(abuffer.getChannelData(i));
+
+            while (pos < length) {
+                for (i = 0; i < numOfChan; i++) {
+                    sample = Math.max(-1, Math.min(1, channels[i][offset])); // clamp
+                    sample = (0.5 + sample < 0 ? sample * 32768 : sample * 32767) | 0; // scale to 16-bit signed int
+                    view.setInt16(pos, sample, true); // little endian
+                    pos += 2;
+                }
+                offset++;
+            }
+
+            return new Blob([buffer], { type: "audio/wav" });
+
+            function setUint16(data) {
+                view.setUint16(pos, data, true);
+                pos += 2;
+            }
+
+            function setUint32(data) {
+                view.setUint32(pos, data, true);
+                pos += 4;
+            }
+        }
+    </script>
+</body>
+</html>
